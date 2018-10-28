@@ -52,7 +52,9 @@ RUN wget -q --no-check-certificate -O - \
         https://github.com/rtfd/readthedocs.org/archive/${RTD_REF}.tar.gz | \
         tar -xzf - --strip-components 1 && \
     $PIP install -U -r $APPDIR/requirements/deploy.txt && \
-    $PIP install elasticsearch==1.7.0 && \
+    $PIP install -U -r $APPDIR/requirements/pip.txt && \
+    $PIP install -U -r $APPDIR/requirements/onebox.txt && \
+    # $PIP install elasticsearch==1.7.0 && \
     $PIP install git+https://github.com/rtfd/readthedocs-sphinx-ext.git
 
 ## Copy configuration, scripts and patch RTD
