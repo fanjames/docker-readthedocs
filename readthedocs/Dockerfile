@@ -45,21 +45,6 @@ RUN adduser --gecos 'py' --disabled-password py
 RUN mkdir -p $APPDIR
 WORKDIR $APPDIR
 
-# Setup read the docs
-'Pygments==2.2.0',
-            # Assume semver for setuptools version, support up to next backwards
-            # incompatible release
-            self.project.get_feature_value(
-                Feature.USE_SETUPTOOLS_LATEST,
-                positive='setuptools<41',
-                negative='setuptools<40',
-            ),
-            'docutils==0.13.1',
-            'mock==1.0.1',
-            'pillow==2.6.1',
-            'alabaster>=0.7,<0.8,!=0.7.5',
-            'commonmark==0.5.4',
-            'recommonmark==0.4.0',
 ## Extract readthedocs
 RUN wget -q --no-check-certificate -O - \
         https://github.com/fanjames/readthedocs.org/archive/2.7.3.tar.gz | \
