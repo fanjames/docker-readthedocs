@@ -26,7 +26,7 @@ RUN apt-get -qq update && \
 RUN apt-get -qq update && \
     apt-get install -qq --no-install-recommends \
         python-setuptools build-essential python-dev python-pip git libevent-dev \
-        libxml2-dev libxslt1-dev gettext texlive texlive-latex-extra \
+        libxml2-dev libxslt1-dev gettext texlive texlive-latex-extra texlive-latex-recommended latex-cjk-* \
         wget \
         nginx && \
     rm -rf /var/lib/apt/lists/*
