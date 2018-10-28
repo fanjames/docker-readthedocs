@@ -25,7 +25,7 @@ RUN apt-get -qq update && \
 # Install basic dependencies
 RUN apt-get -qq update && \
     apt-get install -qq --no-install-recommends \
-        python-setuptools build-essential python-dev python-pip git libevent-dev \
+        python-setuptools build-essential python-dev python-pip git libevent-dev texlive-lang-english \
         libxml2-dev libxslt1-dev gettext texlive texlive-latex-extra texlive-latex-recommended latex-cjk-* \
         wget \
         nginx && \
@@ -51,7 +51,7 @@ RUN wget -q --no-check-certificate -O - \
         tar -xzf - --strip-components 1 && \
     $PIP install -U -r $APPDIR/requirements/deploy.txt && \
     $PIP install -U -r $APPDIR/requirements/onebox.txt && \
-    $PIP install Pygments==2.2.0 docutils==0.13.1 mock==1.0.1 pillow==2.6.1 commonmark==0.5.4 recommonmark==0.4.0 && \
+    $PIP install Pygments==2.2.0 docutils==0.13.1 mock==1.0.1 pillow==2.6.1 commonmark==0.5.4 recommonmark==0.4.0 sphinx=1.7.9 && \
     $PIP install git+https://github.com/rtfd/readthedocs-sphinx-ext.git
 
 ## Copy configuration, scripts and patch RTD
